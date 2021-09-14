@@ -7,9 +7,9 @@
     </div>
 </template>
 <script>
-import VSearch from './search.vue'
-import VLink from './link.vue'
-import VUser from './user.vue'
+import VSearch from './search.vue' // 导入 搜索框
+import VLink from './link.vue' // 导入 超连接
+import VUser from './user.vue' // 导入 用户相关
 export default {
     components: {
         VSearch,

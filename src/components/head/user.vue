@@ -23,7 +23,7 @@
     </div>
 </template>
 <script>
-import VInfo from './info'
+import VInfo from './info' // 导入 用户信息
 export default {
     components: {
         VInfo
