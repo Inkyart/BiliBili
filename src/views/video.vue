@@ -1,8 +1,15 @@
 <!-- 视频页 -->
 <template>
-    <div class="video">video</div>
+    <div class="video">
+        <v-header></v-header>
+    </div>
 </template>
 <script>
-export default {}
+import VHeader from '../components/head/index.vue'
+export default {
+    components: {
+        VHeader
+    }
+}
 </script>
 <style lang="scss" scoped></style>
