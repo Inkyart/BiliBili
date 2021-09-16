@@ -51,6 +51,8 @@ export default {
     flex-flow: nowrap row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 99;
 }
 .user-imgContainer {
     width: 60px;
@@ -73,7 +75,6 @@ export default {
         position: absolute;
         width: 60px;
         height: 60px;
-        border: 1px solid #000;
         border-radius: 50%;
         overflow: hidden;
         z-index: 66;
@@ -83,7 +84,6 @@ export default {
 .user-imgContainer-img {
     width: 40px;
     height: 40px;
-    border: 1px solid #000;
     border-radius: 50%;
     overflow: hidden;
 }

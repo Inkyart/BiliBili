@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 .head {
     position: relative;
-    z-index: 0;
+    z-index: 99;
     width: 100%;
     height: 50px;
     background-color: white;
@@ -30,5 +30,6 @@ export default {
 	justify-content: space-around;
 	align-items: center;
     box-shadow: 0 3px 0 0 #f1f1f1;
+    margin-bottom: 20px;
 }
 </style>

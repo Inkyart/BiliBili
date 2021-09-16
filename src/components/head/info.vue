@@ -59,14 +59,14 @@
 export default {
     data () {
         return {
-            userName: 'XXXX',
-            userLevel: 1,
-            userSchedule: '10/100',
-            userCoin: 0,
-            BCurrency: 0,
-            userFocus: 0,
-            userFan: 0,
-            userDynamic: 0
+            userName: 'XXXX', // 用户名
+            userLevel: 1, // 用户等级
+            userSchedule: '10/100', // 等级进度
+            userCoin: 0, // 硬币数
+            BCurrency: 0, // B币数
+            userFocus: 0, // 关注数
+            userFan: 0, // 粉丝数
+            userDynamic: 0 // 动态数
         }
     }
 }
