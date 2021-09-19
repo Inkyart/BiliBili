@@ -45,7 +45,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .user {
-    width: 515px;
+    width: 510px;
     height: 40px;
     display: flex;
     flex-flow: nowrap row;
@@ -103,12 +103,13 @@ export default {
     align-items: center;
     > span {
         font-size: 18px;
-        font-weight: 400;
+        font-weight: 500;
     }
 }
 .user-link-contribute {
     width: 100px;
     background-color: #fb7299;
     color: white;
+    margin-right: 20    px;
 }
 </style>

@@ -7,7 +7,8 @@
 </template>
 <style lang="scss" scoped>
 .search {
-    width: 550px;
+    width: 485px;
+	margin-left: 10px;
     height: 35px;
 	display: flex;
 	flex-flow: nowrap row;

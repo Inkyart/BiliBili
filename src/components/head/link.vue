@@ -8,7 +8,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 	.link {
-		width: 600px;
+		width: 630px;
 		border: 1px solid #000;
 		height: 30px;
 	}

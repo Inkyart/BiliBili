@@ -27,9 +27,9 @@ export default {
     background-color: white;
 	display: flex;
 	flex-flow: nowrap row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-    box-shadow: 0 3px 0 0 #f1f1f1;
+    box-shadow: 0 2px 5px 0 #f1f1f1;
     margin-bottom: 20px;
 }
 </style>

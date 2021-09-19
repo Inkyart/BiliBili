@@ -49,11 +49,12 @@ export default {
     }
 }
 .content-left {
-    width: 70%;
+    width: 1130px;
     justify-content: flex-end;
 }
 .content-right {
-    width: 30%;
+    margin-left: 30px;
+    width: 600px;
     justify-content: flex-start;
 }
 </style>
