@@ -134,7 +134,7 @@ export default {
         padding: 1px 0;
         vertical-align: middle;
         margin-left: 8px;
-        background-image: url('../../assets/img/icons-comment.png');
+        background-image: url('../../assets/icons/icons-comment.png');
         background-repeat: no-repeat;
     }
     .level-6 {

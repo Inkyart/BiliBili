@@ -17,33 +17,34 @@
         </div>
         <div class="data-bottom">
             <div class="data-bottom-left">
-                <div class="data-like"><i class="icons"></i>{{ like }}</div>
-                <div class="data-coin"><i class="icons"></i>{{ coin }}</div>
+                <div class="data-like"><i class="icons icons-like"></i>{{ like }}</div>
+                <div class="data-coin"><i class="icons icons-coin"></i>{{ coin }}</div>
                 <div class="data-collect">
-                    <i class="icons"></i>{{ collect }}
+                    <i class="icons icons-collect"></i>{{ collect }}
                 </div>
                 <div class="data-forward">
-                    <i class="icons"></i>{{ forward }}
+                    <i class="icons icons-forward"></i>{{ forward }}
                 </div>
             </div>
             <div class="data-bottom-right">
-                <span>稿件投诉</span>
-                <span>笔记</span>
+                <span class="data-complaint">稿件投诉</span>
+                <span class="data-note"><i class="icons icons-note"></i> 笔记</span>
                 <span></span>
             </div>
         </div>
         <div class="data-introduction-container">
             <div class="data-text" :class="{ active: flod }" ref="flod">
-                {{ introduction }}
+                <span> {{ introduction }}</span>
             </div>
             <span
                 v-if="show"
                 @click="flod = !flod"
-                :class="{ active: !flod }"
                 >{{ flod ? '展开更多' : '收起' }}</span
             >
         </div>
-        <div class="data-tag"></div>
+        <div class="data-tag">
+            <div class="tag"><span>标签</span></div>
+        </div>
     </div>
 </template>
 <script>
@@ -71,7 +72,7 @@ export default {
             collect: 0, // 收藏
             forward: 0, // 转发
             introduction:
-                'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 简介
+                '简介', // 简介
             flod: false, // 是否有折叠
             show: false // 是否显示折叠开关
         }
@@ -85,11 +86,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.icons {
-    display: block;
-    width: 30px;
-    height: 30px;
-}
 .data {
     width: 1400px;
 }
@@ -120,8 +116,8 @@ export default {
         }
     }
 }
-.data-container{
-    box-shadow: 0 0 5px 2px rgba(160, 160, 160,0.1);
+.data-container {
+    box-shadow: 0 0 5px 2px rgba(160, 160, 160, 0.1);
 }
 .data-bottom {
     width: 100%;
@@ -130,6 +126,7 @@ export default {
     flex-flow: nowrap row;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 1px 0 0 #f1f1f1;
 }
 .data-bottom-left {
     width: 600px;
@@ -137,46 +134,100 @@ export default {
     flex-flow: nowrap row;
     justify-content: flex-start;
     align-items: center;
+    user-select: none;
     > div {
         display: flex;
         flex-flow: nowrap row;
         justify-content: flex-start;
         align-items: center;
+        &:hover{
+            color:#00a1d6;
+            .icons::before{
+                color:#00a1d6
+            }
+        }
         &:first-of-type ~ div {
             margin-left: 15px;
         }
     }
 }
 .data-bottom-right {
+    user-select: none;
     width: 300px;
     height: 40px;
     display: flex;
     flex-flow: nowrap row;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 18px;
+    > .data-complaint:hover {
+        color: #00a1d6;
+    }
+    > .data-note {
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 20px;
+        padding: 5px 0;
+        box-shadow: 0 0 0 1px #00a1d6;
+        color:#00a1d6;
+        > .icons::before{
+            color:#00a1d6;
+        }
+        &:hover {
+            color: white;
+            background: #00a1d6;
+            > .icons::before{
+                color:white;
+            }
+        }
+    }
 }
 .data-introduction-container {
     width: 100%;
-    padding-top: 30px;
-    display: flex;
-    flex-flow: nowrap column;
-    align-items: flex-start;
-    justify-content: space-around;
-    box-shadow: 0 1px 0 0 #f1f1f1, 0 -1px 0 0 #f1f1f1;
+    margin-top: 10px;
     > .data-text {
         width: 460px;
         text-align: left;
         word-wrap: break-word;
-        overflow: hidden;
         &.active {
             height: 65px;
+            overflow: hidden;
         }
     }
-    > .active {
-        margin-top: 5px;
+    > span {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
     }
     > span:hover {
         color: #00a1d6;
+    }
+}
+.data-tag {
+    padding: 10px 0;
+    box-shadow: 0 1px 0 0 #f1f1f1;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap row;
+    > .tag {
+        background-color: rgba(160, 160, 160, 0.1);
+        border-radius: 25px;
+        height: 28px;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+        align-items: center;
+        min-width: 44px;
+        font-size: 18px;
+        margin: 5px;
+        &:hover {
+            box-shadow: 0 0 0 1px #00a1d6;
+            color: #00a1d6;
+        }
     }
 }
 </style>

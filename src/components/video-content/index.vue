@@ -44,7 +44,7 @@ export default {
     justify-content: center;
     > div {
         display: flex;
-        flex-flow: nowrap row;
+        flex-flow: wrap row;
         min-height: 300px;
     }
 }
