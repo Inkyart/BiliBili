@@ -68,15 +68,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .icons.icons-right {
-    width: 6px;
-    height: 6px;
-    transform: rotateZ(45deg);
     display: inline-block;
-    border-right: 2px solid rgb(160, 160, 160);
-    border-top: 2px solid rgb(160, 160, 160);
     position: absolute;
-    right: 10px;
-    top: calc(50% - 4px);
+    top:0px;
 }
 .barrage {
     padding-left: 1%;
@@ -196,10 +190,14 @@ export default {
         position: relative;
         font-weight: 600;
         color: rgb(160, 160, 160);
+        > span::before{
+            margin-top: 8px;
+            margin-left: 10px;
+        }
         &:hover {
             color: #00a1d6;
-            > span {
-                border-color: #00a1d6;
+            > span::before{
+                color: #00a1d6;
             }
         }
     }

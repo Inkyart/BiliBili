@@ -17,8 +17,12 @@
         </div>
         <div class="data-bottom">
             <div class="data-bottom-left">
-                <div class="data-like"><i class="icons icons-like"></i>{{ like }}</div>
-                <div class="data-coin"><i class="icons icons-coin"></i>{{ coin }}</div>
+                <div class="data-like">
+                    <i class="icons icons-like"></i>{{ like }}
+                </div>
+                <div class="data-coin">
+                    <i class="icons icons-coin"></i>{{ coin }}
+                </div>
                 <div class="data-collect">
                     <i class="icons icons-collect"></i>{{ collect }}
                 </div>
@@ -28,7 +32,10 @@
             </div>
             <div class="data-bottom-right">
                 <span class="data-complaint">稿件投诉</span>
-                <span class="data-note"><i class="icons icons-note"></i> 笔记</span>
+                <span class="data-note">
+                    <i class="icons icons-note"></i>
+                    <span>笔记</span>
+                </span>
                 <span></span>
             </div>
         </div>
@@ -36,11 +43,9 @@
             <div class="data-text" :class="{ active: flod }" ref="flod">
                 <span> {{ introduction }}</span>
             </div>
-            <span
-                v-if="show"
-                @click="flod = !flod"
-                >{{ flod ? '展开更多' : '收起' }}</span
-            >
+            <span v-if="show" @click="flod = !flod">{{
+                flod ? '展开更多' : '收起'
+            }}</span>
         </div>
         <div class="data-tag">
             <div class="tag"><span>标签</span></div>
@@ -71,8 +76,7 @@ export default {
             coin: 0, // 投币
             collect: 0, // 收藏
             forward: 0, // 转发
-            introduction:
-                '简介', // 简介
+            introduction: '简介', // 简介
             flod: false, // 是否有折叠
             show: false // 是否显示折叠开关
         }
@@ -87,7 +91,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .data {
-    width: 1400px;
+    width: 1135px;
 }
 .data-head {
     width: 100%;
@@ -117,6 +121,7 @@ export default {
     }
 }
 .data-container {
+    width: 1135px;
     box-shadow: 0 0 5px 2px rgba(160, 160, 160, 0.1);
 }
 .data-bottom {
@@ -140,10 +145,10 @@ export default {
         flex-flow: nowrap row;
         justify-content: flex-start;
         align-items: center;
-        &:hover{
-            color:#00a1d6;
-            .icons::before{
-                color:#00a1d6
+        &:hover {
+            color: #00a1d6;
+            .icons::before {
+                color: #00a1d6;
             }
         }
         &:first-of-type ~ div {
@@ -172,15 +177,19 @@ export default {
         height: 20px;
         padding: 5px 0;
         box-shadow: 0 0 0 1px #00a1d6;
-        color:#00a1d6;
-        > .icons::before{
-            color:#00a1d6;
+        color: #00a1d6;
+        > .icons::before {
+            color: #00a1d6;
+            margin-left: 10px;
+        }
+        > span {
+            margin-left: 20px;
         }
         &:hover {
             color: white;
             background: #00a1d6;
-            > .icons::before{
-                color:white;
+            > .icons::before {
+                color: white;
             }
         }
     }

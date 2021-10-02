@@ -67,21 +67,23 @@ export default {
     height: 350px;
     width: 350px;
     position: absolute;
-    right: 40px;
     padding-top: 80px;
 }
 .card-container {
-    width:100%;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 3px 0 rgb(160, 160, 160);
-    padding: 0 25px;
+    background-color: white;
+    position: relative;
 }
 .card-background {
     height: 100px;
     width: 100%;
+    background: red;
 }
 .card-content {
-    width: 100%;
+    width: 94%;
+    padding: 0 3%;
     background-color: white;
     display: flex;
     flex-flow: nowrap row;
@@ -134,29 +136,6 @@ export default {
         padding: 1px 0;
         vertical-align: middle;
         margin-left: 8px;
-        background-image: url('../../assets/icons/icons-comment.png');
-        background-repeat: no-repeat;
-    }
-    .level-6 {
-        background-position: -23px -410px;
-    }
-    .level-5 {
-        background-position: -23px -346px;
-    }
-    .level-4 {
-        background-position: -23px -282px;
-    }
-    .level-3 {
-        background-position: -23px -218px;
-    }
-    .level-2 {
-        background-position: -23px -154px;
-    }
-    .level-1 {
-        background-position: -23px -90px;
-    }
-    .level-0 {
-        background-position: -23px -26px;
     }
 }
 .card-foucsFan {
@@ -194,10 +173,17 @@ export default {
             background-color: #00a1d6;
             color: white;
             font-size: 18px;
+            &:hover{
+                background: #00ade7;
+            }
         }
         &.card-sendMsg {
             background-color: white;
             margin-left: 50px;
+            &:hover{
+                box-shadow: 0 0 2px 0 #00a1d6;
+                color: #00a1d6;
+            }
         }
     }
 }

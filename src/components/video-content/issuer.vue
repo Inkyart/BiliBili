@@ -7,13 +7,14 @@
             @mouseleave="show = false"
         >
             <img src="img" alt="" class="issuer-container-img" />
-            <v-introduction
-                v-show="show"
-                :issuer="issuerName"
-                :introduction="issuerIntroduction"
-                :fans="fans"
-                :img="img"
-            ></v-introduction>
+            <div class="issuer-introduction-container" v-show="show">
+                <v-introduction
+                    :issuer="issuerName"
+                    :introduction="issuerIntroduction"
+                    :fans="fans"
+                    :img="img"
+                ></v-introduction>
+            </div>
         </div>
         <div class="issuer-info">
             <div class="issuer-info-name">
@@ -60,19 +61,26 @@ export default {
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
-    z-index: 0;
+    z-index: 9;
 }
 .issuer-container {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
     margin-top: 5px;
+    position: relative;
 }
-
+.issuer-introduction-container{
+    position: absolute;
+    top:0;
+    left: calc(50% - 350px / 2);
+    width: 350px;
+    height: 200px;
+}
 .issuer-container-img {
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 .issuer-info {
     width: 240px;

@@ -17,7 +17,7 @@
 <script>
 import VIssuer from './issuer' // 导入 UP主 信息
 import VList from './list' // 导入 视频推荐列表
-import VSetting from './setting' // 导入 弹幕设置
+import VSetting from './setting/setting' // 导入 弹幕设置
 import VData from './data' // 导入视频
 import VCommon from '../common/index' // 导入评论
 export default {
@@ -36,6 +36,7 @@ export default {
     display: flex;
     flex-flow: nowrap row;
     justify-content: center;
+    position: relative;
 }
 .container-content {
     width: 80%;
@@ -43,18 +44,23 @@ export default {
     flex-flow: nowrap row;
     justify-content: center;
     > div {
-        display: flex;
-        flex-flow: wrap row;
+        // display: flex;
+        // flex-flow: wrap row;
         min-height: 300px;
+        position: relative;
     }
 }
 .content-left {
-    width: 1130px;
+    width: 1200px;
+    display: flex;
+    flex-flow: nowrap row;
     justify-content: flex-end;
 }
 .content-right {
-    margin-left: 30px;
+    margin-left: 35px;
     width: 600px;
-    justify-content: flex-start;
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: flex-start;
 }
 </style>
