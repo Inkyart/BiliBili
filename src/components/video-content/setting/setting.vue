@@ -41,10 +41,7 @@
                 <barrage-list></barrage-list>
             </div>
             <!-- 屏蔽设定 -->
-            <div
-                v-show="mode === 1"
-                class="setting-content-container"
-            >
+            <div v-show="mode === 1" class="setting-content-container">
                 <shield-list></shield-list>
             </div>
             <!-- 高级弹幕 -->
@@ -61,8 +58,8 @@ import barrageList from './barrage-list.vue' // 弹幕列表
 export default {
     data () {
         return {
-            mode: 1, // 模式
-            fold: false, // 是否折叠
+            mode: 0, // 模式
+            fold: true, // 是否折叠
             show_list: false // 是否显示列表
         }
     },
@@ -79,16 +76,12 @@ export default {
 }
 .setting {
     width: 100%;
-    height: 40px;
-    background: rgba(160, 160, 160, 0.1);
-    box-shadow: 0 0 0 1px rgba(160, 160, 160, 0.2);
     border-radius: 1px;
     display: flex;
     flex-flow: wrap row;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 0;
 }
 .setting-title {
     user-select: none;
@@ -99,6 +92,7 @@ export default {
     flex-flow: nowrap row;
     justify-content: space-between;
     align-items: center;
+    background: rgba(160, 160, 160, 0.1);
     z-index: 2;
     > span:first-child {
         display: flex;
@@ -119,7 +113,6 @@ export default {
 }
 .setting-list {
     position: absolute;
-    z-index: inherit;
     width: 75px;
     top: 30px;
     left: 0px;
@@ -142,8 +135,6 @@ export default {
     overflow: hidden;
     height: 650px;
     transition: height 0.2s;
-    position: relative;
-    z-index: 0;
     box-shadow: 0 1px 0 0 rgba(160, 160, 160, 0.2);
     > .setting-content-container {
         height: 650px;

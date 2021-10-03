@@ -4,7 +4,7 @@
         <div class="barrage-list-header">
             <div class="barrage-sort-videoTime videoTime">时间</div>
             <div class="barrage-sort-content content">
-                弹幕内容 ( {{ barrageNum }} )
+                弹幕内容 ( {{ barrageList.length }} )
             </div>
             <div class="barrage-sort-sendTime sendTime">发送时间</div>
         </div>
@@ -38,7 +38,6 @@ import VCalendar from './calendar'
 export default {
     data () {
         return {
-            barrageNum: 0, // 弹幕总数
             barrageList: [
                 {
                     videoTime: '00:00',

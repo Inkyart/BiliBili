@@ -7,9 +7,9 @@
                 <v-common></v-common>
             </div>
             <div class="content-right">
-                <v-issuer></v-issuer>
-                <v-setting></v-setting>
-                <v-list></v-list>
+                <div class="content-issuer"><v-issuer></v-issuer></div>
+                <div class="content-setting"><v-setting></v-setting></div>
+                <div class="content-list"><v-list></v-list></div>
             </div>
         </div>
     </div>
@@ -62,5 +62,12 @@ export default {
     display: flex;
     flex-flow: nowrap column;
     align-items: flex-start;
+    position: relative;
+}
+.content-issuer,
+.content-setting,
+.content-list{
+    position: relative;
+    width: 100%;
 }
 </style>

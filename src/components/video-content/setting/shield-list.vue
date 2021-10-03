@@ -202,6 +202,7 @@ export default {
                 // 变更提示信息
                 this.clickMsg = '已屏蔽'
             }
+            this.shield_content = ''
             setTimeout(() => {
                 this.clickMsg = ''
             }, 1000)
