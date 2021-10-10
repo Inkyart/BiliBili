@@ -35,7 +35,7 @@
     </div>
 </template>
 <script>
-import VIntroduction from './card.vue'
+import VIntroduction from '../card/card.vue'
 export default {
     components: {
         VIntroduction

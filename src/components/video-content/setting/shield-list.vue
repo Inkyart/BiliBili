@@ -178,7 +178,7 @@ export default {
             if (this.shield_content === '') return
 
             if (
-                // 如果是正则 和
+                // 如果是正则
                 reg.test(this.shield_content)
             ) {
                 if (
@@ -187,21 +187,21 @@ export default {
                     !this.tabList[1].includes(regs.exec(this.shield_content)[1])
                 ) {
                     this.tabList[1].push(regs.exec(this.shield_content)[1])
+                    // 变更提示信息
+                    this.clickMsg = '已添加该屏蔽词，并已同步到云端'
                 }
-            }
-
-            if (
-                // 屏蔽词不存在 和
+            } else if (
+                // 屏蔽词不存在
                 !this.tabList[0].includes(this.shield_content)
             ) {
                 // 则添加
                 this.tabList[0].push(this.shield_content)
                 // 变更提示信息
                 this.clickMsg = '已添加该屏蔽词，并已同步到云端'
-            } else {
-                // 变更提示信息
-                this.clickMsg = '已屏蔽'
             }
+
+            if (this.clickMsg === '') this.clickMsg = '已屏蔽'
+
             this.shield_content = ''
             setTimeout(() => {
                 this.clickMsg = ''

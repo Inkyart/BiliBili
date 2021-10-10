@@ -3,8 +3,12 @@
     <div class="container">
         <div class="container-content">
             <div class="content-left">
-                <v-data></v-data>
-                <v-common></v-common>
+                <div class="content-video-container">
+                    <v-data></v-data>
+                </div>
+                <div class="content-common-container">
+                    <v-common></v-common>
+                </div>
             </div>
             <div class="content-right">
                 <div class="content-issuer"><v-issuer></v-issuer></div>
@@ -53,8 +57,19 @@ export default {
 .content-left {
     width: 1200px;
     display: flex;
-    flex-flow: nowrap row;
-    justify-content: flex-end;
+    flex-flow: nowrap column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    > .content-common-container,
+    > .content-video-container{
+        width: 1140px;
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: flex-start;
+    }
+    > .content-common-container{
+        min-height: 2000px;
+    }
 }
 .content-right {
     margin-left: 35px;

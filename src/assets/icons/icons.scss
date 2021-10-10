@@ -18,7 +18,7 @@
 .icons {
     position: relative;
     margin-right: 8px;
-    display: block;
+    display: inline-block;
     font-style: normal;
     z-index: 999;
     > svg {
@@ -41,6 +41,13 @@
     }
 }
 
+/**
+* 顶部弹幕
+* 彩色弹幕
+* 底部弹幕
+* 高级弹幕
+* 滚动弹幕
+*/
 .icons-top,
 .icons-colors,
 .icons-bottom,
@@ -59,6 +66,7 @@
     }
 }
 
+/** 设置 */
 .icons-setting {
     > svg {
         width: 30px;
@@ -73,34 +81,35 @@
     }
 }
 
+/** 点赞 */
 .icons-like {
     &::before {
         font-family: icons2;
         content: '\E6E0';
     }
 }
-
+/** 银币 */
 .icons-coin {
     &::before {
         font-family: icons2;
         content: '\E6E4';
     }
 }
-
+/** 收藏 */
 .icons-collect {
     &::before {
         font-family: icons2;
         content: '\E6E1';
     }
 }
-
+/** 转发 */
 .icons-forward {
     &::before {
         font-family: icons2;
         content: '\E70F';
     }
 }
-
+/** 笔记 */
 .icons-note {
     &::before {
         font-family: icons3;
@@ -110,7 +119,7 @@
         top: 16%;
     }
 }
-
+/** 列表 */
 .icons-list {
     &:before {
         font-family: icons2;
@@ -121,6 +130,7 @@
         left: 0;
     }
 }
+/**  左箭头 */
 .icons-left {
     &::before {
         font-family: icons2;
@@ -130,6 +140,7 @@
         top: 6px;
     }
 }
+/**  右箭头 */
 .icons-right {
     &::before {
         font-family: icons2;
@@ -139,6 +150,7 @@
         top: 6px;
     }
 }
+/** 同步 */
 .icons-sync{
     &::before{
         font-family: icons3;
@@ -146,6 +158,7 @@
         font-size: 14px;
     }
 }
+/** 删除 */
 .icons-remove{
     &::before{
         font-family: icons1;
@@ -153,10 +166,101 @@
         font-size: 14px;
     }
 }
+/** 正确 */
 .icons-correct{
     &::before{
         font-family: icons1;
         content: '\E749';
         font-size: 14px;
+    }
+}
+/** 评论 点踩 */
+.icons-bad{
+    &::before{
+        font-family: icons2;
+        content: '\E638';
+        font-size: 14px;
+    }
+    &.active::before{
+        content: '\E6E0';
+        transform: rotateX(180deg);
+        color: #00a1d6;
+    }
+}
+/** 评论 点赞 */
+.icons-good{
+    &::before{
+        font-family: icons2;
+        content: '\E63A';
+        font-size: 14px;
+    }
+    &.active::before{
+        content: '\E6E0';
+        color: #00a1d6;
+    }
+}
+
+/** 等级 */
+.icons-level-0{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6CB';
+        font-size: 22px;
+        color: rgb(160, 160, 160, .6);
+    }
+}
+.icons-level-1{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6CC';
+        font-size: 22px;
+        color: rgb(160, 160, 160, .6);
+    }
+}
+.icons-level-2{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6CD';
+        font-size: 22px;
+        color: lightgreen;
+    }
+}
+.icons-level-3{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6CE';
+        font-size: 22px;
+        color: skyblue;
+    }
+}
+.icons-level-4{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6CF';
+        font-size: 22px;
+        color: rgb(255, 190, 68);
+    }
+}
+.icons-level-5{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6D0';
+        font-size: 22px;
+        color: rgb(255, 120, 71);
+    }
+}
+.icons-level-6{
+    width: 20px;
+    &::before{
+        font-family: icons2;
+        content: '\E6D1';
+        font-size: 22px;
+        color: rgb(255, 0, 0);
     }
 }

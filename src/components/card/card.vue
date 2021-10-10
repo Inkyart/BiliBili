@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-container">
             <div class="card-background">
-                <img :src="img" alt="" />
+                <img src="@/assets/img/card-background.png" alt="" />
             </div>
             <div class="card-content">
                 <div class="card-content-left">
@@ -14,7 +14,7 @@
                 <div class="card-content-right">
                     <div class="card-name">
                         <span>{{ issuer }}</span>
-                        <span :class="'level-' + level"></span>
+                        <span :class="'level level-' + level"></span>
                     </div>
                     <div class="card-foucsFan">
                         <span>关注: {{ foucs }}</span>
@@ -63,11 +63,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .card {
-    top: 0;
     height: 350px;
     width: 350px;
     position: absolute;
     padding-top: 80px;
+    z-index: 99;
 }
 .card-container {
     width: 100%;
@@ -79,7 +79,7 @@ export default {
 .card-background {
     height: 100px;
     width: 100%;
-    background: red;
+    overflow: hidden;
 }
 .card-content {
     width: 94%;
@@ -128,14 +128,6 @@ export default {
     > span:first-of-type {
         font-size: 18px;
         font-weight: 700;
-    }
-    > span:last-of-type {
-        display: inline-block;
-        width: 19px;
-        height: 9px;
-        padding: 1px 0;
-        vertical-align: middle;
-        margin-left: 8px;
     }
 }
 .card-foucsFan {

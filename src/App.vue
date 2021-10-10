@@ -4,7 +4,6 @@
 
 <style lang="scss">
 @import './assets/icons/icons';
-@import './assets/icons/level';
 // 取消 边距 超链接下划线 列表样式
 * {
     padding: 0;
