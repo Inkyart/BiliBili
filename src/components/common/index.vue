@@ -3,19 +3,19 @@
     <div class="common">
         <div class="common-header">
             <h3 class="common-title">
-                <span>{{ commonList.length }} </span>
+                <span>{{ commonNum }} </span>
                 评论
             </h3>
             <div class="common-sort">
                 <div
-                    @click="sort = 'heat'"
+                    @click="heatSort"
                     :class="{ active: sort === 'heat' }"
                     class="sort common-sort-heat"
                 >
                     按热度排序
                 </div>
                 <div
-                    @click="sort = 'time'"
+                    @click="timeSort"
                     :class="{ active: sort === 'time' }"
                     class="sort common-sort-time"
                 >
@@ -24,14 +24,14 @@
             </div>
         </div>
         <div class="common-input">
-            <v-input></v-input>
+            <v-input @sendCommon="sendCommon"></v-input>
         </div>
         <div class="common-list">
             <ul class="common-list-container">
                 <li
                     class="common-list-item"
-                    v-for="(item, index) in commonList"
-                    :key="index"
+                    v-for="(item, commonIndex) in commonList"
+                    :key="commonIndex"
                 >
                     <div class="list-item-common">
                         <v-common
@@ -42,11 +42,11 @@
                             :good="item.data.good"
                             :reply="item.reply"
                             :level="item.level"
-                            :index="index"
+                            :index="commonIndex"
                             @clickReply="clickReply"
                         ></v-common>
                     </div>
-                    <div class="list-item-reply" v-if="!item.reply">
+                    <div class="list-item-reply" v-if="item.replyList">
                         <v-common
                             v-for="(item, replyIndex) in item.replyList"
                             :key="replyIndex"
@@ -57,16 +57,12 @@
                             :good="item.data.good"
                             :reply="item.reply"
                             :level="item.level"
-                            :index="index"
+                            :index="commonIndex"
                             @clickReply="clickReply"
                         ></v-common>
                     </div>
-                    <div class="list-item-reply" v-show="reply === index">
-                        <v-input
-                            :replyName="replyName"
-                            @sendCommon="sendCommon"
-                            :ref="input"
-                        />
+                    <div class="list-item-reply" v-show="index === commonIndex">
+                        <v-input @sendCommon="sendCommon" :reply="true" :replyName="replyName"/>
                     </div>
                 </li>
             </ul>
@@ -83,137 +79,54 @@ export default {
     },
     data () {
         return {
-            sort: 'heat', // 默认以热度排序
-            commonList: [
-                {
-                    name: '甲', // 用户名
-                    level: 2, // 用户等级
-                    userImg: '', // 用户头像
-                    content:
-                        '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                    data: {
-                        // 评论数据
-                        date: '2021-09-27 07:55', // 日期
-                        good: 999, // 点赞
-                        bad: 0 // 点踩
-                    },
-                    reply: false, // 是否是回复
-                    replyList: [] // 回复内容列表
-                },
-                {
-                    name: '乙', // 用户名
-                    level: 5, // 用户等级
-                    userImg: '', // 用户头像
-                    content:
-                        '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                    data: {
-                        // 评论数据
-                        date: '2021-09-27 07:55', // 日期
-                        good: 999, // 点赞
-                        bad: 0 // 点踩
-                    },
-                    reply: false, // 是否是回复
-                    replyList: [
-                        {
-                            name: '丙', // 用户名
-                            level: 6, // 用户等级
-                            userImg: '', // 用户头像
-                            content:
-                                '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                            data: {
-                                // 评论数据
-                                date: '2021-09-27 07:55', // 日期
-                                good: 999, // 点赞
-                                bad: 0 // 点踩
-                            },
-                            reply: true, // 是否是回复
-                            replyList: [] // 回复内容列表
-                        },
-                        {
-                            name: '丁', // 用户名
-                            level: 2, // 用户等级
-                            userImg: '', // 用户头像
-                            content:
-                                'awwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww', // 用户评论内容
-                            data: {
-                                // 评论数据
-                                date: '2021-09-27 07:55', // 日期
-                                good: 999, // 点赞
-                                bad: 0 // 点踩
-                            },
-                            reply: true, // 是否是回复
-                            replyList: [] // 回复内容列表
-                        },
-                        {
-                            name: '任', // 用户名
-                            level: 4, // 用户等级
-                            userImg: '', // 用户头像
-                            content:
-                                '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                            data: {
-                                // 评论数据
-                                date: '2021-09-27 07:55', // 日期
-                                good: 999, // 点赞
-                                bad: 0 // 点踩
-                            },
-                            reply: true, // 是否是回复
-                            replyList: [] // 回复内容列表
-                        }
-                    ] // 回复内容列表
-                },
-                {
-                    name: '葵', // 用户名
-                    level: 2, // 用户等级
-                    userImg: '', // 用户头像
-                    content:
-                        '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                    data: {
-                        // 评论数据
-                        date: '2021-09-27 07:55', // 日期
-                        good: 999, // 点赞
-                        bad: 0 // 点踩
-                    },
-                    reply: false, // 是否是回复
-                    replyList: [] // 回复内容列表
-                },
-                {
-                    name: '戌', // 用户名
-                    level: 3, // 用户等级
-                    userImg: '', // 用户头像
-                    content:
-                        '评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内', // 用户评论内容
-                    data: {
-                        // 评论数据
-                        date: '2021-09-27 07:55', // 日期
-                        good: 999, // 点赞
-                        bad: 0 // 点踩
-                    },
-                    reply: false, // 是否是回复
-                    replyList: [] // 回复内容列表
-                }
-            ],
-            reply: null, // 显示回复索引
-            replyName: '' // 回复的用户名
+            commonList: [], // 回复列表
+            commonNum: 0, // 回复数目
+            index: null, // 显示回复索引
+            replyName: '', // 回复的用户名
+            name: '', // 用户名称
+            timeSortOrder: 1, // 时间排序升降序
+            heatSortOrder: 1, // 热度排序升降序
+            sort: 'heat'
         }
     },
     methods: {
         /**
          * 用于回复
-         * @param {number} key - 索引
+         * @param {number} index - 索引
          * @param {string} name - 回复用户名
-         * @param {boolean} reply - 是否是回复 即 回复的评论是否已是回复
+         * @param {boolean} index - 是否是回复 即 回复的评论是否已是回复
          */
-        clickReply (key, name) {
-            // 如果 当前显示的回复 索引 等于 key 和 回复的用户名称与 name 一致 即 再次点击回复时
-            if (this.reply === key && this.replyName === name) {
+        clickReply (index, name) {
+            // 如果 当前显示的回复 索引 等于 index 和 回复的用户名称与 name 一致 即 再次点击回复时
+            if (this.index === index && this.replyName === name) {
                 // 清空并停止函数
-                this.reply = ''
+                this.index = ''
             } else {
-                this.reply = key
+                this.index = index
                 this.replyName = name
             }
         },
-        sendCommon () {}
+        /**
+         * 用于回复
+         * @param {object} common - 回复内容数据
+         * @param {boolean} reply - 是否是回复
+         */
+        sendCommon (common, reply) {
+            if (reply) {
+                this.commonList[this.index].replyList.push(common)
+            } else {
+                this.commonList.push(common)
+            }
+            this.commonNum += 1
+        },
+        timeSort () {
+            this.sort = 'time'
+            this.commonList.sort((a, b) => a.data.date < b.data.date ? this.timeSortOrder : -this.timeSortOrder)
+            this.timeSortOrder = -this.timeSortOrder
+        },
+        heatSort () {
+            this.sort = 'heat'
+        }
     }
 }
 </script>
@@ -297,6 +210,11 @@ export default {
         width: 92.5%;
         position: relative;
         left: 7.5%;
+    }
+    > .list-item-flod {
+        width: 100%;
+        text-align: left;
+        background-color: red;
     }
 }
 </style>

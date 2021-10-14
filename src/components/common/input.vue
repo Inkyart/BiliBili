@@ -7,28 +7,79 @@
         <div class="input-container">
             <textarea
                 class="input-content"
-                :placeholder="
-                    replyName === ''
-                        ? '发一条友善的评论'
-                        : `回复 @${replyName} :`
-                "
+                :placeholder="replyName === '' ? '发一条友善的评论' : `回复 @ ${replyName} :`"
                 v-model="common"
             ></textarea>
-            <button><span>发表评论</span></button>
+            <button @click="send"><span>发表评论</span></button>
         </div>
     </div>
 </template>
 <script>
+import randomNumber from '../../util/randomNum'
+import date from '../../util/date'
 export default {
     props: {
-        // 回复的用户名
+        // 被回复的用户名
         replyName: {
             type: String,
             default: ''
+        },
+        // 回复的用户名
+        data: {
+            type: Map,
+            default: {
+                name: '用户名',
+                level: Math.floor(Math.random() * 7),
+                userImg: ''
+            }
+        },
+        // 是否是回复
+        reply: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
-        return {}
+        return {
+            common: ''
+        }
+    },
+    methods: {
+        send () {
+            if (this.common === '') return
+
+            const common = {
+                // name: this.data.name, // 用户名
+                name: this.userName(),
+                level: this.data.level, // 用户等级
+                userImg: this.data.userImg, // 用户头像
+                content: (() => {
+                    // 评论内容
+                    if (this.reply) {
+                        return `回复 @${this.replyName}: ${this.common}`
+                    } else return this.common
+                })(),
+                data: {
+                    // 评论数据
+                    date: date(), // 日期
+                    good: 0, // 点赞
+                    bad: 0 // 点踩
+                },
+                reply: this.reply, // 是否是回复
+                replyList: [] // 回复内容列表
+            }
+
+            this.$emit('sendCommon', common, this.reply) // 触发事件 发表评论
+            this.common = '' // 清空评论内容
+        },
+        // 用于生成一次性用户名
+        userName () {
+            let name = ''
+            for (let i = 0; i < parseInt(Math.random() * 17, 10); i++) {
+                name += String.fromCharCode(randomNumber(0x4e00, 0x9fa5, 10))
+            }
+            return name
+        }
     }
 }
 </script>
